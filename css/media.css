@@ -1,0 +1,731 @@
+@media (max-width: 1300px) {
+    /* ОБЩИЕ */
+    .container {
+        padding: 0 50px;
+    }
+
+    /* ШАПКА (HEADER) */
+    .header {
+        justify-content: space-between;
+        align-items: center;
+        padding-top: 26px;
+        padding-bottom: 26px;
+    }
+
+    /* Меню-бургер */
+    .header__nav-icon {
+        display: block;
+        width: 30px;
+        height: 23px;
+        border: none;
+        background-color: transparent;
+        position: relative;
+        cursor: pointer;
+        z-index: 10000;
+    }
+
+    .header__nav-icon:focus-visible {
+        outline-offset: 5px;        
+        outline: 2px solid #ff9900;
+    }
+
+    .header__nav-icon:active {
+        outline: none;
+    }
+
+    .header__nav-icon span {
+        display: block;
+        position: absolute;
+        width: 100%;
+        height: 3px;
+        background: #333;
+        opacity: 1;
+        right: 0;
+        transition: .25s ease-in-out;
+    }
+
+    .header__nav-icon span:nth-child(1) {
+        top: 3px;
+    }
+    
+    .header__nav-icon span:nth-child(2) {
+        top: 10px;
+    }
+    
+    .header__nav-icon span:nth-child(3) {
+        top: 17px;
+    }
+
+    .burger--active span {
+        right: 0;
+        background-color: #ff9900;
+        transition: width 0.3s;
+    }
+
+    .burger--active span:nth-child(2) {
+        width: 25px;
+    }
+    
+    .burger--active span:last-child {
+        width: 18px;
+    }
+
+    .header__logo {
+        width: 150px;
+        height: 48px;
+    }
+
+    .header__nav {
+        position: absolute;
+        left: 0px;
+        top: 0px;
+        width: auto;
+        height: auto;
+        z-index: 1000;
+        padding: 70px 50px;
+        box-shadow: 0 0 5px #888;
+        background-color: #fff;
+        overflow-y: auto;
+        visibility: hidden;
+        transform: translateX(-120%);
+        transition: visibility 0.3s ease-in-out, transform 0.3s ease-in-out;
+    }
+
+    .header__nav--active {
+        visibility: visible;
+        transform: none;
+    }
+
+    .nav__list {
+        flex-direction: column;
+        align-items: start;
+    }
+
+    .nav__item {
+        margin-right: 0;
+        margin-bottom: 30px;
+    }
+
+    .nav__item-link {
+        font-size: 18px;
+    }
+
+    .stop-scroll {
+        overflow: hidden;
+    }
+
+    /* УТП (OFFER) */
+    .offer {
+        background-image: url('/img/balconies-1024px.jpg');
+        background-size: cover;
+        background-position: center center;
+        background-repeat: no-repeat;
+        padding: 160px 83px;
+        min-height: 668px;
+        margin-bottom: 82px;
+    }
+
+    .offer__title {
+        max-width: 770px;
+        font-size: 60px;
+        line-height: 73px;
+        margin-bottom: 16px;
+    }
+
+    .offer__desc {
+        max-width: 660px;
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 83px;
+    }
+
+    /* О НАС (ABOUT) */
+    .about {
+        margin-bottom: 83px;
+    }
+
+    .about__title {
+        margin-bottom: 12px;
+    }
+
+    .about__desc {
+        margin-bottom: 60px;
+    }
+
+    .about__cards {
+        display: block;
+    }
+
+    .about__left-card {
+        width: 100%;
+        min-height: 640px;
+        background: no-repeat, top/cover url('/img/worker-1024px.jpg');
+        flex-direction: column;
+        justify-content: flex-end;       /* Для того, чтобы прижать тёмный блок к низу карточки */
+        margin-bottom: 32px;
+    }
+    
+    .about__right-card {
+        padding: 65px 110px 65px 316px;
+        background-position: left 11% top 51%;
+    }   
+
+    /* КАК МЫ РАБОТАЕМ (HOW) */
+    .how {
+        margin-bottom: 84px;
+    }
+
+    .how__tabs {
+        margin-bottom: 53px;
+    }
+
+    .how__tab-left {
+        max-width: 437px;
+        margin-right: 10px;
+    }
+
+    .how__desc {
+        width: 100%;
+        margin-bottom: 20px;
+    } 
+
+    .link-more{                                             /* Чтобы кнопка Договор не наезжала на кнопку Подробнее */
+        width: 162px;
+        display: inline-block !important;
+        margin-bottom: 40px !important;
+    }
+
+    /* ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) */
+    .faq {
+        margin-bottom: 80px;
+    }
+  
+    .faq__title {
+        letter-spacing: -1.1px;
+        margin-bottom: 34px;
+    }
+
+    .faq__top-question {
+        max-width: 756px;        
+        font-size: 20px;
+        line-height: 32px;
+        text-align: left;
+    }
+
+    /* ПОДВАЛ (FOOTER) */
+    .footer {
+        padding: 56px 0;
+    }
+
+    .footer__left {
+        width: 25%;
+    }
+
+    .footer__links {
+        font-size: 18px;
+    }
+
+    .footer__center {
+        width: 58.3%;
+    }
+
+    .footer__input,
+    .footer__textarea {
+        width: 100%;
+    }
+
+    .footer__input {
+        padding: 19px 21px;
+    }
+
+    .footer__textarea {
+        padding: 24px 21px;
+        margin-bottom: 22px;
+    }
+
+    .footer__btn {
+        padding: 22px 38px;
+        font-size: 16px;
+    }
+
+    .footer__checkbox {
+        font-size: 16px; 
+    }
+
+    .footer__label span {
+        padding: 0 0 0 20px;
+    }    
+
+    .footer__right {
+        display: none;
+    }
+}
+  
+@media (max-width: 992px) {
+    /* ШАПКА (HEADER) */
+    .header {
+        padding-top: 10px;
+        padding-bottom: 10px;
+    }
+
+    .burger {
+        width: 30px;
+        height: 23px;
+    }
+
+    /* УТП (OFFER) */
+    .offer {
+        background-image: url('/img/balconies-768px.jpg');
+        padding: 160px 40px;
+        min-height: 662px;
+        margin-bottom: 80px;
+    }
+
+    .offer__title {
+        max-width: 588px;
+        font-size: 50px;
+        line-height: 61px;
+    }
+
+    .offer__desc {
+        max-width: 588px;
+        font-size: 18px;
+        line-height: 22px;
+        margin-bottom: 87px;
+    }
+
+    .offer__btn {
+        padding: 25px 35px;
+    }
+
+    /* О НАС (ABOUT) */
+    .about {
+        margin-bottom: 80px;
+    }
+
+    .about__title {
+        margin-bottom: 20px;
+    }
+
+    .about__desc {
+        margin-bottom: 55px;
+    }
+
+    .about__left-card {
+        min-height: 650px;
+        background: no-repeat, top/cover url('/img/worker-768px.jpg');
+    }
+
+    .about__left-card-desc {
+        padding: 37px 41px 32px;
+    }
+
+    .about__left-text {
+        max-width: 366px;
+    }
+
+    .about__left-link {
+        padding: 18px 36px;
+    }
+    
+    .about__right-card {
+        padding: 35px 44px 35px 170px;
+        background-position: left 7% top 51%;
+    }  
+
+    .card-1 {
+        background-image: url("/img/package-768px.svg");
+    }
+    
+    .card-2 {
+        background-image: url("/img/gear-768px.svg");
+    }
+
+    /* КАК МЫ РАБОТАЕМ (HOW) */
+    .how__tab-content {
+        flex-direction: column-reverse;
+    }
+
+    .how__tabs {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 48px;
+    }
+
+    .how__btn {
+        margin-right: 0;
+    }
+
+    .how__tab-left {
+        max-width: 667px;
+    }
+
+    .how__tab-right {
+        margin-bottom: 38px;
+    }
+
+    /* ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) */
+    .faq__title {
+        margin-bottom: 38px;
+    }
+
+    .faq__top {
+        padding-left: 1px;
+        padding-right: 0;
+    }
+
+    .faq__top-question {
+        max-width: 570px;
+    }
+
+    /* ПОДВАЛ (FOOTER) */
+    .footer {
+        padding: 57px 0;
+    }
+
+    .container {
+        flex-direction: column-reverse;
+    }
+
+    .footer__left {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer__logo-img {
+        max-width: 224px;
+        min-height: 72px;
+        display: block;
+        margin-bottom: 10px auto;
+        transform: translateX(-17%);
+    }
+
+    .footer__links {
+        display: none;
+    }
+
+    .footer__socials {
+        margin-bottom: 60px;
+    }
+
+    .footer__center {
+        width: 100%;
+        margin-left: 0px;
+        margin-bottom: 50px;
+    }
+
+    .footer__input:not(:last-child) {
+        margin-bottom: 26px;
+    }
+
+    .footer__textarea {
+        height: 150px;
+        margin-bottom: 29px;
+    }
+
+    .footer__btn {
+        padding: 15px 39px 21px;
+    }
+
+    .footer__label span {
+        padding: 4px 0 0 20px;
+    }
+
+    .footer__checkbox {
+        margin-bottom: 14px;
+    }
+} 
+
+@media (max-width: 500px) {
+    /* ОБЩИЕ */
+    .container {
+       padding: 0 15px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .section-subtitle {
+        font-size: 18px;
+        line-height: 22px;
+        font-weight: 500;
+    }
+
+    /* ШАПКА (HEADER) */
+    .header {
+        padding-top: 17px;
+        padding-bottom: 17px;
+    }
+
+    .header__logo {
+        width: 110px;
+        height: 35px;
+    }
+
+    /* УТП (OFFER) */
+    .offer {
+        background-image: url('/img/balconies-320px.jpg');
+        padding: 60px 21px;
+        min-height: 308px;
+        margin-bottom: 60px;
+    }
+
+    .offer__title {
+        max-width: 247px;
+        margin: 0 auto;
+        font-size: 20px;
+        line-height: 24px;
+        text-align: center;
+        margin-bottom: 8px;
+    }
+
+    .offer__desc {
+        max-width: 247px;
+        margin: 0 auto;
+        font-size: 12px;
+        line-height: 15px;
+        margin-bottom: 32px;
+        text-align: center;
+    }
+
+    .offer__btn {
+        width: 162px;
+        padding: 12px 28px;
+        display: block;
+        margin: 0 auto;
+        font-size: 12px;
+    }
+
+    /* О НАС (ABOUT) */
+    .about {
+        margin-bottom: 60px;
+    }
+
+    .about__desc {
+        font-size: 14px;
+        line-height: 28px;
+        margin-bottom: 16px;
+    }
+
+    .about__left-card {
+        background: none;
+        flex-direction: column-reverse;
+        min-height: 0;
+    }
+
+    .about__left-card:after {
+        content: "";
+        display: block;
+        width: 100%;
+        min-height: 200px;
+        background: no-repeat, top/cover url('/img/worker-320px.jpg');
+        margin-bottom: 10px;
+    }
+
+    .about__left-card-desc {
+        display: block;
+        background-color: transparent;
+        padding: 0;
+    }
+
+    .about__left-text {
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: 400;
+        color: #333;
+        text-align: left;
+        margin-bottom: 9px;
+    }
+
+    .about__left-link {
+        display: inline-block;
+        padding: 9px 41px 11px 40px;
+        font-size: 12px;        
+        color: #ff9900;
+    }
+
+    .about__right-cards {
+        display: block;
+    }
+
+    .about__right-card {
+        padding: 0;
+        padding-top: 62px;
+        border: none;
+    }
+
+    .card-1 {
+        background-image: url("/img/package-320px.svg");
+        background-position: left 0% top 0%;
+    }
+
+    .card-2 {
+        background-image: url("/img/gear-320px.svg");
+        background-position: left 0% top 0%;
+    }
+
+    .about__right-card-title {
+        margin-bottom: 4px;
+    }
+
+    .about__right-card-desc {
+        font-size: 14px;
+        line-height: 28px; 
+    } 
+
+    /* КАК МЫ РАБОТАЕМ (HOW) */
+    .how {
+        margin-bottom: 73px;
+    }
+
+    .how__title {
+        letter-spacing: -1px;
+        margin-bottom: 20px;
+    }
+
+    .how__tabs {
+        margin-bottom: 18px;
+    }
+
+    .how__btn {
+        font-size: 14px;
+    }
+
+    .how__tab-left {
+        max-width: 290px;
+        margin-right: 0;
+    }
+
+    .how__subtitle {
+        width: 242px;
+        margin-top: -20px;
+    }
+
+    .how__desc {
+        max-width: 290px;
+        font-size: 14px;
+        line-height: 28px;
+        font-weight: 400;
+        margin-bottom: 25px;
+    }
+
+    .how__link {
+        display: inline;
+    }
+
+    .link-active {
+        width: 162px;
+        padding: 12px 42px 13px 45px;
+        font-size: 12px;
+        margin-right: 10px;
+    }
+
+    .link-inactive {
+        width: 118px;
+        padding: 11px 32px 11px 30px;
+        font-size: 12px;
+    }
+
+    /* ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) */
+    .faq {
+        margin-bottom: 60px;
+    }
+
+    .faq__title {
+        margin-bottom: 18px;
+    }
+
+    .faq__top {
+        padding-top: 29px;
+        padding-bottom: 31px;
+    }
+
+    .faq__top-question {
+        width: 248px;
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 500;
+    }
+
+    .faq__btn {
+        width: 28px;
+        height: 28px;
+    }
+
+    /* ПОДВАЛ (FOOTER) */
+    .footer {
+        padding: 33px 0;
+    }
+
+    .footer__left {
+        width: 100%;                    /* для выравнивания лого по центру */
+    }
+
+    .footer__left a {                   /* для выравнивания по центру */    
+        display: block;
+        text-align: center;
+    }
+
+    .footer__logo {
+        max-width: 131px;
+        min-height: 42px;
+        margin: 0 auto;
+    }
+
+    .footer__heading {
+        font-size: 24px;
+        margin-bottom: 24px;
+    }
+
+    .footer__center,
+    .footer__form {
+        max-width: 100%;
+    }
+
+    .footer__textarea {
+        margin-bottom: 12px;
+    }
+
+   .footer__socials {
+        width: 153px;    
+        margin: 0 auto;
+    }
+
+    .footer__social:not(:last-child) {
+        margin-right: 6px;
+    }    
+
+    .footer__social svg {
+        width: 40px;
+        height: 40px;
+        margin-right: 10px;
+    }
+
+    .footer__btns {
+        display: block;
+    }
+
+    .footer__btn,
+    .footer__label {
+        display: block;
+    }
+
+    .footer__btn {
+        width: 180px;
+        margin: 0 auto 17px;
+        padding: 12px 23px 13px 24px;
+        font-size: 12px;
+    }
+
+    .footer__label {
+        font-size: 16px;
+        padding-bottom: 19px;
+        border-bottom: 1px solid #595959;
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+        margin-bottom: -20px;
+    }
+}

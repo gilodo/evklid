@@ -1,0 +1,989 @@
+/* ОБЩИЕ */
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    padding: 0;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* ШРИФТЫ */
+/* Montserrat Regular */
+@font-face {
+    font-family: 'Montserrat';
+    src: local(''),
+         url('/fonts/montserrat-regular.woff2') format('woff2'),
+         url('/fonts/montserrat-regular.woff') format('woff');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;     
+}
+
+@font-face {
+/* Montserrat Medium */
+    font-family: 'Montserrat';
+    src: local(''),
+         url('/fonts/montserrat-medium.woff2') format('woff2'),
+         url('/fonts/montserrat-medium.woff') format('woff');
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;     
+}
+
+@font-face {
+/* Montserrat SemiBold */
+    font-family: 'Montserrat';
+    src: local(''),
+         url('/fonts/montserrat-semibold.woff2') format('woff2'),
+         url('/fonts/montserrat-semibold.woff') format('woff');
+    font-style: normal;
+    font-weight: 600;
+    font-display: swap;     
+}
+
+@font-face {
+/* Montserrat Bold */
+    font-family: 'Montserrat';
+    src: local(''),
+         url('/fonts/montserrat-bold.woff2') format('woff2'),
+         url('/fonts/montserrat-bold.woff') format('woff');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;     
+}
+
+@font-face {
+/* Montserrat ExtraBold */
+    font-family: 'Montserrat';
+    src: local(''),
+         url('/fonts/montserrat-extrabold.woff2') format('woff2'),
+         url('/fonts/montserrat-extrabold.woff2') format('woff');
+    font-style: normal;
+    font-weight: 800;
+    font-display: swap;     
+}
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    color: #333;
+    background-color: #fff;
+}
+
+.flex {
+    display: flex;
+}
+
+.container {
+    max-width: 100%;
+    padding: 14px 75px 0 75px;
+}
+
+.section-title {
+    font-size: 48px;
+}
+
+.section-subtitle {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+/* ШАПКА (HEADER) */
+.header {
+    justify-content: space-between;
+    align-items: center;    
+    padding-bottom: 14px;
+}
+
+.header__logo:focus-visible {
+    outline-offset: 5px;
+    outline: 2px solid #ff9900;
+}
+
+.burger {
+    display: none;
+}
+
+.header__nav {
+    font-size: 18px;
+    font-weight: 600;
+    align-items: center;
+    color: #333;
+}
+
+.nav__item {
+    display: inline-block;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.nav__item {
+    margin-right: 85px;
+}
+
+.nav__item-link:hover:not(:focus-visible) {
+    border-color: #ff9900;
+}
+
+.nav__item-link:focus-visible {
+    outline-offset: 5px;
+    outline: 2px solid #ff9900;
+}
+
+.nav__item-link:active:not(:focus-visible) {
+    color: #e1670e;
+    padding-bottom: 5px;
+    border-bottom: 2px solid #e1670e;
+}
+
+.search-btn {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    margin: 0;
+    cursor: pointer;
+}
+
+.search-btn rect {
+    transition: fill .5s;
+}
+
+.search-btn path {
+    transition: stroke .5s;
+} 
+
+.search-btn:hover:not(:focus-visible) rect {
+    fill: #ff9900;
+} 
+
+.search-btn:hover:not(:focus-visible) path {
+    stroke: #ff9900;
+}
+
+.search-btn:focus-visible {
+    outline-offset: 4px;
+    outline: 2px solid #ff9900;
+}
+
+.search-btn:active:not(:focus-visible) rect {
+    fill: #ff9900;
+} 
+
+.search-btn:active:not(:focus-visible) path {
+    stroke: #ff9900;
+}
+
+.search-form {
+    max-width: 539px;
+    height: 60px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.12);
+    border-radius: 16px;
+    align-items: center;
+    display: flex;
+    position: absolute;
+    right: 0;
+    top: -100px;
+    opacity: 0;
+    transition: top .5s, opacity .5s;
+}
+
+.search-form--show {
+    top: 25px;
+    right: 70px;
+    opacity: 1;
+}
+
+.search-form__input {
+    max-width: 412px;
+    border: none;
+    margin-left: 32px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #dcdcdc;
+}
+
+.search-form__input:focus-visible {
+    outline: none;
+    border-bottom: 1px solid #ff9900;
+}
+
+.search-form__send {
+    background-color: transparent;
+    padding: 0;
+    border: none;
+    margin-left: 14px;
+    cursor: pointer;
+}
+
+.search-form__send rect {
+    transition: fill .5s;
+}
+
+.search-form__send path {
+    transition: stroke .5s;
+} 
+
+.search-form__send:hover:not(:focus-visible) rect {
+    fill: #ff9900;
+} 
+
+.search-form__send:hover:not(:focus-visible) path {
+    stroke: #ff9900;
+}
+
+.search-form__send:focus-visible {
+    outline-offset: 4px;
+    outline: 2px solid #ff9900;
+}
+
+.search-form__send:active:not(:focus-visible) rect {
+    fill: #ff9900;
+} 
+
+.search-form__send:active:not(:focus-visible) path {
+    stroke: #ff9900;
+}
+
+.search-form__close {
+    background-color: transparent;
+    padding: 0;
+    border: none        ;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.search-form__close rect {
+    transition: fill .5s;
+}
+
+.search-form__close circle {
+    transition: stroke .5s;
+}
+
+.search-form__close:hover:not(:focus-visible) rect {
+    fill: #ff9900;
+}
+
+.search-form__close:hover:not(:focus-visible) circle {
+    stroke: #ff9900;
+}
+
+.search-form__close:focus-visible {
+    outline-offset: 2px;
+    outline: 2px solid #ff9900;
+}
+
+.search-form__send:active:not(:focus-visible) rect {
+    fill: black;
+} 
+
+.search-form__send:active:not(:focus-visible) circle     {
+    stroke: black;
+}
+
+.visually-hidden {
+    visibility: hidden;
+}
+
+/* УТП (OFFER) */
+.offer {
+    padding-top: 10px;
+    margin-bottom: 105px;
+}
+
+.swiper-box {
+    position: relative;
+    color: #fff;
+}
+
+.swiper-container {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.swiper-slide {
+    background-size: cover;
+}
+
+.swiper-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.swiper-pagination-bullet {
+    width: 15px !important;
+    height: 15px !important;
+    background-color: #fff !important;
+    opacity: .4;
+    margin: 10px !important;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+}
+
+.text-box {
+    position: relative;
+    z-index: 1;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    padding-left: 80px;
+    pointer-events: none;
+}
+
+.offer__title {
+    max-width: 837px;
+    font-size: 70px;
+    line-height: 85px;
+    font-weight: 800;
+    color: #fff;
+    margin-bottom: 22px;
+}
+
+.offer__desc {
+    max-width: 790px;
+    font-size: 24px;
+    line-height: 29px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 113px;
+}
+
+.offer__btn {
+    background-color: #ff9900;
+    padding: 25px 37px;
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+    outline: none;
+}
+
+.offer__btn:hover:not(:focus-visible),
+.offer__btn:focus-visible {
+    background: rgba(255, 153, 0, 0.7);
+}
+
+.offer__btn:active:not(:focus-visible) {
+    background: #e1670e;
+}
+
+/* О НАС (ABOUT) */
+.about {
+    margin-bottom: 100px;
+}
+
+.about__title {
+    margin-bottom: 20px;
+}
+
+.about__desc {
+    max-width: 1235px;
+    font-size: 16px;
+    line-height: 32px;
+    margin-bottom: 50px;
+}
+
+.about__left-card {
+    width: calc((100% - 32px) / 2);
+    min-height: 622px;
+    margin-right: 32px;
+    background: no-repeat, top/cover url('/img/worker-1920px.jpg');
+    flex-direction: column;
+    justify-content: flex-end;       /* Для того, чтобы прижать тёмный блок к низу карточки */
+}
+
+.about__left-card-desc {
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 50px;
+}
+
+.about__left-text {
+    max-width: 454px;
+    font-size: 16px;
+    line-height: 32px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.about__left-link {
+    padding: 17px 38px;
+    border: 3px solid #ff9900;
+    color: #fff;
+}
+
+.about__left-link:hover:not(:focus-visible),
+.about__left-link:focus-visible {
+    background: #ff9900;
+}
+
+.about__left-link:active:not(:focus-visible) {
+    background: #e1670e;
+}
+
+.about__right-cards {
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.about__right-card {
+    padding: 65px 110px 65px 300px;
+    border: 1px solid #cacaca;
+    background-position: left 9% top 50%;
+    background-repeat: no-repeat;
+    /* background-size: 22%; */
+}
+
+.card-1 {
+    background-image: url("/img/package.svg");
+    margin-bottom: 32px;
+}
+
+.card-2 {
+    background-image: url("/img/gear.svg");
+}
+
+.about__right-card-title {
+    margin-bottom: 8px;
+}
+
+.about__right-card-desc {
+    max-width: 450px;
+    font-size: 16px;
+    line-height: 32px;
+}
+
+/* КАК МЫ РАБОТАЕМ (HOW) */
+.how {
+    margin-bottom: 100px;
+}
+
+.how__title {
+    margin-bottom: 54px;
+    letter-spacing: -1.8px;
+}
+
+.how__tabs {
+    margin-bottom: 45px;
+}
+
+.how__tabs-item {
+    font-size: 18px;
+    transition: color .3s ease-in-out;
+}
+
+.how__tabs-item:not(:last-child) {
+    margin-right: 86px;
+}
+
+.how__tabs-item-btn {
+    background: none;
+    border: none;
+    outline: none;
+    transition: color .3s ease-in-out;
+    padding: 0;
+}
+
+.how__tabs-item-btn:hover:not(:focus-visible) {
+    color: #ff9900;
+    cursor: pointer;
+}
+
+.how__tabs-item-btn:focus-visible {
+    outline: 2px solid #ff9900;
+    outline-offset: 5px;
+}
+
+.how__tabs-item-btn:active:not(:focus-visible) {
+    color: #e1670e;
+}
+
+.tabs-nav__btn--active {
+    color: #e1670e;
+}
+
+.tabs-item {
+    display: none;
+}
+
+.tabs-item--active {
+    display: block;
+}
+
+.how__tab-left {
+    max-width: 758px;
+    margin-right: 12%;
+}
+
+.how__btn {
+   margin-right: 80px; 
+   font-size: 18px;
+   padding: 0;
+   border: none;
+   background-color: transparent;
+   cursor: pointer;
+}
+
+.how__btn:hover:not(:focus-visible) {
+    color: #ff9900;
+    cursor: pointer;
+}
+
+.how__btn:focus-visible {
+    outline-offset: 2px;
+    outline: 1px solid #ff9900;
+}
+
+.how__btn:active:not(:focus-visible) {
+    color: #e1670e;
+}
+
+.how__subtitle {
+    margin-bottom: 12px;
+}
+
+.how__desc {
+    font-size: 16px;
+    line-height: 32px;
+    margin-bottom: 50px;
+}
+
+.how__link {
+    display: inline-block;
+    padding: 20px 38px;
+}
+
+.link-more {
+    outline: none;
+    background-color: #ff9900;
+    color: #fff;
+    margin-right: 32px;
+}
+
+.link-more:hover:not(:focus-visible),
+.link-more:focus-visible {
+    background: #f7b045;
+}
+
+.link-more:active:not(:focus-visible) {
+    background: #e1670e;
+}
+
+.link-contract {
+    background-color: transparent;
+    border: 1px solid #333;
+}
+
+.link-contract:hover:not(:focus-visible),
+.link-contract:focus-visible {
+    background: #666;
+    color: #fff;
+}
+
+.link-contract:active:not(:focus-visible) {
+    background: #000;
+    color: #fff;
+}
+
+.how__tab-right {
+    max-width: 870px;       /* чтобы картинка не увеличивалась  */
+}
+
+.how-img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;      /* единственный способ уместить картинку  */
+}
+
+/* ЧАСТО ЗАДАВАЕМЫЕ ВОПРОСЫ (FAQ) */
+.faq {
+    margin-bottom: 100px;
+}
+
+.faq__title {
+    margin-bottom: 47px;
+    letter-spacing: -2px;
+}
+
+.accordion__content {
+    overflow: hidden;
+    visibility: hidden;
+    transition-property: height, visibility;
+    transition-timing-function: ease;
+}
+
+.faq__list-item:first-child .faq__top {     /* верхняя граница первой кнопки (текст + плюс в кружке) */
+    border-top: 1px solid #cacaca;
+}
+
+.faq__top {                                 /* кнопка без кружка с плюсиком (текст между 2 границами) */ 
+    border: 0;
+    padding-top: 32px;
+    padding-bottom: 27px;
+    border-top: 1px solid transparent;
+    border-bottom: 1px solid #cacaca;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    width: 100%;                            /* растягивает кнопку во весь контейнер */
+    background-color: transparent;
+    position: relative;
+    margin-top: -1px;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.faq__top:focus-visible {
+    outline: 0;                             /* убирает чёрную рамку у кнопки */
+}
+
+.faq__top:hover:not(:active),               /* меняется цвет верхней и нижней границ кнопок */
+.faq__top:focus-visible:not(:active),
+.faq__list-item:first-child .faq__top:hover:not(:active),
+.faq__list-item:first-child .faq__top:focus-visible:not(:active) {
+    border-color: #ff9900;
+}
+
+.faq__top:hover:not(:active) .faq__top-question,      /* меняется цвет текста вопроса */
+.faq__top:focus-visible:not(:active) .faq__top-question {
+    color: #ff9900;
+}
+
+.faq__top:hover:not(:active) .faq__top-btn,            /* меняется цвет кружка */ 
+.faq__top:focus-visible:not(:active) .faq__top-btn {
+    background-color: #ff9900;
+}
+
+.faq__top:hover:not(:active) .faq__top-btn::before,
+.faq__top:hover:not(:active) .faq__top-btn::after,
+.faq__top:focus-visible:not(:active) .faq__top-btn::before,
+.faq__top:focus-visible:not(:active) .faq__top-btn::after {
+    background-color: #fff;
+}
+
+.faq__top:active .faq__top-btn {
+    transform: rotate(45deg);
+}
+
+.faq__top-question {
+    margin-right: auto;
+    font-size: 24px;
+    font-weight: 700;
+    transition: color 0.3s ease-in-out;
+}
+
+.faq__top-btn,
+.faq__top-btn::before,
+.faq__top-btn::after {
+    transition: background-color 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.faq__btn {
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+}
+
+.faq__btn:focus-visible {
+    outline: 0;
+}
+
+.btn__plus {                            /* кружок */
+    background-color: #ececec;
+    border-radius: 100%;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.btn__plus::before {                    /* горизонтальная палочка плюсика */
+    content: "";
+    position: absolute;
+    top: calc((100% - 1px) / 2);
+    left: calc((40% - 1px) / 2);
+    height: 1px;
+    width: calc(60% + 1px);
+    background-color: #666;
+}
+
+.btn__plus::after {                     /* вертикальная палочка плюсика */
+    content: "";
+    position: absolute;
+    top: calc((100% - 1px) / 2);
+    left: calc((40% - 1px) / 2);
+    height: 1px;
+    width: calc(60% + 1px);
+    background-color: #666;
+    transform: rotate(90deg);
+}
+
+.accordion--active .accordion__content {
+    visibility: visible;
+}
+
+.faq__bottom {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+}
+
+.faq__bottom p {
+    font-size: 16px;
+    line-height: 32px;
+}
+
+/* ПОДВАЛ (FOOTER) */
+.footer {
+    padding: 40px 0;
+    background: #222;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.footer__left {
+    width: 24%;
+}
+
+.footer__logo:focus-visible {
+    outline-offset: 5px;
+    outline: 2px solid #ff9900;  
+}
+
+.footer__logo-img {
+    max-width: 224px;
+    min-height: 72px;
+    margin-bottom: 20px;
+}
+    
+.footer__links {
+    width: 252px;
+    font-size: 18px;
+    line-height: 36px;
+    font-weight: 600;
+    color: #cacaca;
+    margin-bottom: 100px;
+}
+
+.footer__link {
+    transition: color 0.3s ease-in-out;
+}
+
+.footer__link:hover:not(:focus-visible) {
+    color: #ff9900;
+}
+
+.footer__link:focus-visible {
+    outline-offset: 2px;
+    outline: 2px solid #ff9900;
+}
+
+.footer__link:active:not(:focus-visible) {
+    color: #e1670e;
+}
+
+.footer__link:not(:last-child) {
+    margin-bottom: 16px;
+}
+
+.footer__social:not(:last-child) {
+    margin-right: 25px;
+}
+
+.footer__social-link svg path {
+    transition: fill 0.3s ease-in-out;
+}
+
+.footer__social-link:hover svg path {
+    fill: #ff9900;
+}
+
+.footer__social-link:focus-visible {
+    outline-offset: 1px;
+    outline: 1px solid #ff9900;
+}
+
+.footer__social-link:active:not(:focus-visible) svg path {
+    fill: #e1670e;
+}
+
+.footer__center {
+    width: 35.5%;
+}
+
+.footer__form {
+    flex-direction: column; 
+}
+
+.footer__heading {
+    font-size: 48px;
+    color: #cacaca;
+    margin-bottom: 25px;
+}
+
+.footer__input {
+    width: 90%;
+    padding: 21px 24px;
+    background-color: #414141;
+    color: #cacaca;
+    margin-bottom: 25px;
+}
+
+.footer__textarea {
+    width: 90%;
+    height: 150px;
+    padding: 14px 24px;
+    background-color: #414141;
+    color: #cacaca;
+    margin-bottom: 27px;
+    resize: none;
+}
+
+.footer__input:hover:not(:focus-visible),
+.footer__textarea:hover:not(:focus-visible) {
+    background-color: #666;
+    color: #cacaca;
+}
+
+.footer__input:focus-visible,
+.footer__textarea:focus-visible {
+    background-color: #666;
+    color: #cacaca;
+    outline: none;
+}
+
+.footer__input:active:not(:focus-visible),
+.footer__textarea:active:not(:focus-visible) {
+    background-color: #666;
+    color: #fff;
+    outline: none;
+}
+
+.footer__btns {
+    align-items: center;
+}
+
+.footer__btn {
+   padding: 20px 56px; 
+   background: #ff9900;
+   color: #fff;
+   margin-right: 22px;
+}
+
+.footer__btn:hover:not(:focus-visible),
+.footer__btn:focus-visible {
+    background: rgba(255, 153, 0, 0.7);
+}
+
+.footer__btn:active:not(:focus-visible) {
+    background: #e1670e;
+}
+
+/* Стили чекбокса */
+.footer__label {
+    position: relative;
+    font-size: 16px;
+    color: #cacaca;
+    cursor: pointer;
+    user-select: none;
+}
+
+.footer__label input[type=checkbox] {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+    display: block;
+    width: 0;
+    height: 0;
+}
+
+.footer__label span::before {       /* белый чекбокс */                
+    content:"";
+    position: absolute;
+    display: inline-block;
+    width: 22px;
+    height: 22px;
+    left: 0;
+    top: 3px;
+    transition: background 0.3s ease-in-out;
+    background: url("/img/checkbox.png") 0 0 no-repeat;
+}
+
+/* Помеченный чекбокс */
+.footer__label input[type=checkbox]:checked + span::before {
+    background-image: url("/img/checkbox-checked.png");
+}
+
+/* Ховер */
+.footer__label span:hover:not(:focus-visible)::before {
+    filter: brightness(110%);
+}
+
+/* Фокус */
+.footer__label span:focus-visible::before {
+    box-shadow: 0 0 0 0.2rem rgba(0 , 123, 255, 0.25);
+}
+
+/* Активный */
+.footer__label span:active:not(:focus-visible)::before {
+    filter: brightness(80%);
+} 
+
+.footer__label span {
+    display: inline-block;
+    position: relative;
+    padding: 0 0 0 25px;
+}
+
+.footer__checkbox {
+    padding-right: 4px;
+}
+
+.footer__right {
+    width: calc(20% + 8px);
+    font-size: 16px;
+    line-height: 32px;
+    color: #cacaca;
+    align-self: center;
+}
